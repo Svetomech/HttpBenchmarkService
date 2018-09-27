@@ -18,18 +18,18 @@ namespace HttpBenchmarkService
       {
         int.TryParse(_configuration["N"], out int n);
 
-        var logsBuilder = new StringBuilder();
+        var bodyBuilder = new StringBuilder();
 
-        logsBuilder.Append("[");
+        bodyBuilder.Append("[");
         for (int i = 0; i < n - 1; ++i)
         {
-          logsBuilder.Append(_configuration["RequestBody"]);
-          logsBuilder.Append(",");
+          bodyBuilder.Append(_configuration["RequestBody"]);
+          bodyBuilder.Append(",");
         }
-        logsBuilder.Append($"{_configuration["RequestBody"]}");
-        logsBuilder.Append("]");
+        bodyBuilder.Append(_configuration["RequestBody"]);
+        bodyBuilder.Append("]");
 
-        return logsBuilder.ToString();
+        return bodyBuilder.ToString();
       }
     }
   }
